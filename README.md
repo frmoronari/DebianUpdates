@@ -17,10 +17,6 @@ Editar o arquivo "/etc/zabbix/zabbix_agentd.conf" (ou seu correspondente) e inse
 UserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}'
 UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2"
 
-Ou usar o comando abaixo com sudo ou usuário "root":
-
-"echo -e '\n# Count and list Debian Updates \nUserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}' \nUserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2 \n' >> /etc/zabbix/zabbix_agentd.conf"
-
 Realizar o download do arquivo "[DebianUpdates.yaml](https://github.com/frmoronari/DebianUpdates/blob/main/DebianUpdates.yaml)".
 
 Importar em seu Zabbix Server o arquivo de template baixado.
@@ -51,10 +47,6 @@ Edit the file "/etc/zabbix/zabbix_agentd.conf" (or its equivalent) and insert th
 "# Count and list Debian Updates
 UserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}'
 UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2"
-
-Or use the command below with sudo or "root" user:
-
-"echo -e '\n# Count and list Debian Updates \nUserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}' \nUserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2 \n' >> /etc/zabbix/zabbix_agentd.conf"
 
 Download the file "[DebianUpdates.yaml](https://github.com/frmoronari/DebianUpdates/blob/main/DebianUpdates.yaml)".
 
