@@ -1,0 +1,48 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-09-12T10:28:55Z'
+  groups:
+    - uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    - uuid: ba802fe63b7f45b0b346a395ede62718
+      template: 'Debian Updates'
+      name: 'Debian Updates'
+      description: |
+        Controle de atualizações para Debian Linux com Zabbix.
+
+        Este é um tempalte simples, com apenas duas chaves para verificação de quantidade
+        e listagem de updates disponíveis para Debian Linux.
+
+        Update control for Debian Linux with Zabbix.
+
+        This is a simple template, with only two keys to check the quantity
+        and list of updates available for Debian Linux.
+      groups:
+        - name: Templates
+      items:
+        - uuid: 0bef32eeb5d24fb3b37fef03c4261068
+          name: 'Debian OS Updates List'
+          key: debian.updt.list
+          delay: 720m
+          trends: '0'
+          value_type: TEXT
+        - uuid: e270ea866edf488db414b891ecc485c2
+          name: 'Debian OS Updates Quantidade'
+          key: debian.updt.qt
+          delay: 720m
+          triggers:
+            - uuid: cf4212fa84a7463db6e46c40454fccfa
+              expression: 'last(/Debian Updates/debian.updt.qt)<>0'
+              name: 'Debian OS Update Quantidade'
+              priority: WARNING
+              description: 'É necessário verificar as atualizações no host e aplicá-las.'
+  graphs:
+    - uuid: 45e619eb552b47328e6fef412e69d9b1
+      name: 'OS Updates - Quantidade'
+      graph_items:
+        - color: 199C0D
+          calc_fnc: ALL
+          item:
+            host: 'Debian Updates'
+            key: debian.updt.qt
