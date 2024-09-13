@@ -19,8 +19,8 @@ UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{pr
 
 Editar o arquivo "/etc/sudoers" da maneira que achar mais conveniente e inserir as informações:
 
-## Same thing without a password
-zabbix        ALL=(ALL)       NOPASSWD: ALL
+"## Same thing without a password
+zabbix        ALL=(ALL)       NOPASSWD: ALL"
 
 Dessa forma o usuário "zabbix" poderá executar comnados com sudo sem a necessidade de senha.
 
@@ -57,8 +57,8 @@ UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{pr
 
 Edit the "/etc/sudoers" file as you see fit and insert the following information:
 
-## Same thing without a password
-zabbix ALL=(ALL) NOPASSWD: ALL
+"## Same thing without a password
+zabbix ALL=(ALL) NOPASSWD: ALL"
 
 This way, the "zabbix" user will be able to execute commands with sudo without needing a password.
 
