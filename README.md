@@ -13,14 +13,12 @@ Um alerta do tipo atenção é gerado quando o número de updates for <> (difere
 ## Instalação:
 Editar o arquivo "/etc/zabbix/zabbix_agentd.conf" (ou seu correspondente) e inserir as linhas:
 
-"# Count and list Debian Updates
 UserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}'
-UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2"
+UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2
 
 Editar o arquivo "/etc/sudoers" da maneira que achar mais conveniente e inserir as informações:
 
-"## Same thing without a password
-zabbix        ALL=(ALL)       NOPASSWD: ALL"
+zabbix        ALL=(ALL)       NOPASSWD: ALL
 
 Dessa forma o usuário "zabbix" poderá executar comnados com sudo sem a necessidade de senha.
 
@@ -51,14 +49,12 @@ host(s) to be monitored.
 ## Installation:
 Edit the file "/etc/zabbix/zabbix_agentd.conf" (or its equivalent) and insert the lines:
 
-"# Count and list Debian Updates
 UserParameter=debian.updt.qt,sudo apt update 2>/dev/null | grep packages | awk '{print $1}'
-UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2"
+UserParameter=debian.updt.list,sudo apt list --upgradable 2>/dev/null | awk '{print $1}' | tail -n +2
 
 Edit the "/etc/sudoers" file as you see fit and insert the following information:
 
-"## Same thing without a password
-zabbix ALL=(ALL) NOPASSWD: ALL"
+zabbix ALL=(ALL) NOPASSWD: ALL
 
 This way, the "zabbix" user will be able to execute commands with sudo without needing a password.
 
